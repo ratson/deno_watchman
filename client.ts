@@ -264,11 +264,11 @@ export class Client extends EventEmitter {
 
   private _synthesizeCapabilityCheck(
     resp: any,
-    optional: any,
-    required: any,
+    optional: string[],
+    required: string[],
   ) {
     resp.capabilities = {};
-    var version = resp.version;
+    const version = resp.version;
     optional.forEach(function (name: string) {
       resp.capabilities[name] = have_cap(version, name);
     });
@@ -276,9 +276,8 @@ export class Client extends EventEmitter {
       var have = have_cap(version, name);
       resp.capabilities[name] = have;
       if (!have) {
-        resp.error = "client required capability `" +
-          name +
-          "` is not supported by this server";
+        resp.error =
+          `client required capability \`${name}\` is not supported by this server`;
       }
     });
     return resp;
@@ -287,9 +286,11 @@ export class Client extends EventEmitter {
   capabilityCheck(caps: { optional?: string[]; required?: string[] }) {
     const optional = caps.optional || [];
     const required = caps.required || [];
-    return new Promise((resolve, reject) => {
+    return new Promise<
+      { version: string; capabilities: { [key: string]: boolean } }
+    >((resolve, reject) => {
       this.command(
-        ["version", { optional: optional, required: required }],
+        ["version", { optional, required }],
         (error, resp) => {
           if (error) {
             reject(error);
