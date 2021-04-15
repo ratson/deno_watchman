@@ -1,4 +1,4 @@
-import { Client } from "./mod.ts";
+import { Client } from "../mod.ts";
 
 const client = new Client();
 
