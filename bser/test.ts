@@ -1,7 +1,8 @@
+// deno-lint-ignore-file camelcase,no-explicit-any,no-inner-declarations
 import {
   assertEquals,
   assertStrictEquals,
-} from "https://deno.land/std@0.93.0/testing/asserts.ts";
+} from "https://deno.land/std@0.96.0/testing/asserts.ts";
 import { Int64 } from "./int64.ts";
 import * as bser from "./mod.ts";
 
@@ -81,7 +82,7 @@ Deno.test("Accumulator", () => {
 Deno.test("dumpToBuffer", () => {
   // Don't include keys that have undefined values
   const res = bser.dumpToBuffer({ expression: undefined });
-  // assert.deepStrictEqual(bser.loadFromBuffer(res), {});
+  assertEquals(bser.loadFromBuffer(res), {});
 
   // Dump numbers without fraction to integers
   var buffer;

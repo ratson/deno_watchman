@@ -1,6 +1,6 @@
 // deno-lint-ignore-file camelcase
-import { resolve } from "https://deno.land/std@0.93.0/path/mod.ts";
-import { v4 } from "https://deno.land/std@0.93.0/uuid/mod.ts";
+import { resolve } from "https://deno.land/std@0.96.0/path/mod.ts";
+import { v4 } from "https://deno.land/std@0.96.0/uuid/mod.ts";
 import { Client } from "./client.ts";
 
 /**
