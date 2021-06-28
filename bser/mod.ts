@@ -1,8 +1,8 @@
 /* Copyright 2015-present Facebook, Inc.
  * Licensed under the Apache License, Version 2.0 */
 // deno-lint-ignore-file
-import { EventEmitter } from "https://deno.land/std@0.96.0/node/events.ts";
-import os from "https://deno.land/std@0.96.0/node/os.ts";
+import { EventEmitter } from "https://deno.land/std@0.99.0/node/events.ts";
+import os from "https://deno.land/std@0.99.0/node/os.ts";
 import { Buffer } from "./deps.ts";
 import { Int64 } from "./int64.ts";
 
