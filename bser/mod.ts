@@ -1,9 +1,9 @@
 /* Copyright 2015-present Facebook, Inc.
  * Licensed under the Apache License, Version 2.0 */
 // deno-lint-ignore-file
-import { EventEmitter } from "https://deno.land/std@0.99.0/node/events.ts";
-import os from "https://deno.land/std@0.99.0/node/os.ts";
-import { Buffer } from "./deps.ts";
+import { Buffer } from "https://deno.land/std@0.101.0/node/buffer.ts";
+import { EventEmitter } from "https://deno.land/std@0.101.0/node/events.ts";
+import os from "https://deno.land/std@0.101.0/node/os.ts";
 import { Int64 } from "./int64.ts";
 
 // BSER uses the local endianness to reduce byte swapping overheads
@@ -101,15 +101,15 @@ export class Accumulator {
     this.assertReadableSize(size);
     switch (size) {
       case 1:
-        return this.buf.readInt8(this.readOffset, size);
+        return this.buf.readInt8(this.readOffset);
       case 2:
         return isBigEndian
-          ? this.buf.readInt16BE(this.readOffset, size)
-          : this.buf.readInt16LE(this.readOffset, size);
+          ? this.buf.readInt16BE(this.readOffset)
+          : this.buf.readInt16LE(this.readOffset);
       case 4:
         return isBigEndian
-          ? this.buf.readInt32BE(this.readOffset, size)
-          : this.buf.readInt32LE(this.readOffset, size);
+          ? this.buf.readInt32BE(this.readOffset)
+          : this.buf.readInt32LE(this.readOffset);
       case 8: {
         const big = this.buf.slice(this.readOffset, this.readOffset + 8);
         if (isBigEndian) {

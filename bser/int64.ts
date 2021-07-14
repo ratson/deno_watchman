@@ -26,7 +26,8 @@
  * For details about IEEE-754 see:
  * http://en.wikipedia.org/wiki/Double_precision_floating-point_format
  */
-import { Buffer } from "./deps.ts";
+// deno-lint-ignore-file
+import { Buffer } from "https://deno.land/std@0.101.0/node/buffer.ts";
 
 // Useful masks and values for bit twiddling
 var MASK31 = 0x7fffffff, VAL31 = 0x80000000;
