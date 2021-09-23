@@ -1,9 +1,9 @@
 /* Copyright 2015-present Facebook, Inc.
  * Licensed under the Apache License, Version 2.0 */
 // deno-lint-ignore-file
-import { Buffer } from "https://deno.land/std@0.101.0/node/buffer.ts";
-import { EventEmitter } from "https://deno.land/std@0.101.0/node/events.ts";
-import os from "https://deno.land/std@0.101.0/node/os.ts";
+import { Buffer } from "https://deno.land/std@0.108.0/node/buffer.ts";
+import { EventEmitter } from "https://deno.land/std@0.108.0/node/events.ts";
+import os from "https://deno.land/std@0.108.0/node/os.ts";
 import { Int64 } from "./int64.ts";
 
 // BSER uses the local endianness to reduce byte swapping overheads

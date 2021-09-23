@@ -2,7 +2,7 @@
 import {
   assertEquals,
   assertStrictEquals,
-} from "https://deno.land/std@0.99.0/testing/asserts.ts";
+} from "https://deno.land/std@0.108.0/testing/asserts.ts";
 import { Int64 } from "./int64.ts";
 import * as bser from "./mod.ts";
 
